@@ -25,7 +25,7 @@ A few of the most important improvements are:
 \end{itemize}
 Details on these improvements are to be discussed in an upcoming paper and CEED report.
 
-\subsection{Stability-Enhanced Wall-Resolved Models: $k-\tau$}
+\subsection{Stability-Enhanced Wall-Resolved Models: $\lowercase{k}-\tau$}
 Another significant development during the past year was the implementation of the $k-\tau$
 version of the $k-\omega$ model and the investigation of the scaling of all the terms appearing in
 the right-hand side of the $k$ and $\tau$ equations. The model has been implemented in both Nek5000 and NekRS. The $k-\tau$ model was originally developed by Kalitzin et al.~\cite{benton01} as an alternative
@@ -37,7 +37,7 @@ equations by using the definition $\tau=1/\omega$:
 \end{equation}
 
 \begin{equation}
- \frac{\partial (\rho \tau)}{\partial t} + \nabla\cdot(\rho\tau \bf{v}) =  \nabla\cdot\left[(\mu+\frac{\mu_t}{\sigma_\omega })\nabla \tau \right] - \gamma \frac{\tau}{k} P+\rho \beta-2\frac{\mu}{\tau}\left(\nabla\tau\cdot\nabla\tau\right)
+ \frac{\partial (\rho \tau)}{\partial t} + \nabla\cdot(\rho\tau \bf{v}) =  \nabla\cdot\left[(\mu+\frac{\mu_t}{\sigma_\tau })\nabla \tau \right] - \gamma \frac{\tau}{k} P+\rho \beta-2\frac{\mu}{\tau}\left(\nabla\tau\cdot\nabla\tau\right)
 \end{equation}
 where now $G_k=P$, $Y_k=\beta^{*}k/\tau$, $G_\tau=\gamma\tau P/k$, $Y_\tau=\beta$ and $S_\tau=2\nu\left(\nabla\tau\cdot\nabla\tau\right)/\tau$.
 
@@ -46,7 +46,7 @@ terms that become singular close to  wall boundaries, all terms in the right-han
 
 \subsection{Verification of the $\lowercase{k}-\tau$ RANS model in NekRS}
 \label{sec:nrs1}
-The $k-\tau$ model is implemented in nekRS as the primary RANS model because of two important reasons: (i) its capability in predicting the wall-bounded turbulent flows, and (ii) the relatively easier treatment of boundary conditions. Before conducting the large-scale full core CFD simulations with nekRS, a verification study is performed to ensure the $k-\tau$ model implemented in nekRS produces consistent results as in its CPU-only version, Nek5000. A 2x2 subchannel bundle domain is selected in the testing case. Identical boundary and initial conditions are specified in the nekRS and Nek5000 test cases. The same set of input parameters are given in both cases, such as the time step size, residual tolerances, etc. The cases are run long enough to reach steady state. Figure~\ref{fig:tkeofbundle} shows the turbulent kinetic energy distribution under the steady state. A quantitative comparison is presented in Figure~\ref{fig:tkeplot} and Figure~\ref{fig:tauplot} where nekRS was able to reproduce the exact solutions of Nek5000. This benchmark study provides a strong foundation as we move on to the more extensive verification and applications of $k-\tau$ model in nekRS.
+As indicated in the previous section, the $k-\tau$ model is implemented in NekRS as the primary RANS model because of two important reasons: (i) its capability in predicting the wall-bounded turbulent flows, and (ii) the relatively easier treatment of boundary conditions compared to the original $k-\omega$ model. Before conducting the large-scale full core CFD simulations with NekRS, a verification study is performed to ensure the $k-\tau$ model implemented in NekRS produces consistent results as in its CPU-only version, Nek5000. A 2x2 subchannel bundle geometry is selected in the testing case. Identical boundary and initial conditions are specified in the NekRS and Nek5000 test cases. In addition, the same set of input parameters are given in both cases, such as the time step size, residual tolerances, etc. The cases are run long enough to reach the steady state. Figure~\ref{fig:tkeofbundle} shows the turbulent kinetic energy distribution under the steady state. A quantitative comparison is presented in Figure~\ref{fig:tkeplot} and Figure~\ref{fig:tauplot} where nekRS was able to reproduce the exact solutions of Nek5000. This benchmark study provides a strong foundation as we move on to the more extensive verification and applications of $k-\tau$ model in NekRS.
 
 \begin{figure}[!ht]
 \centering

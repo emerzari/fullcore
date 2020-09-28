@@ -7,7 +7,7 @@ In this section we describe briefly some selected results related to the flow in
 \subsection{Full core simulations and FOM update}
 \label{sec:results1}
 
-The first we examine is Case I which is the largest at $59.8 \cdot 10^{9}$ unique grid points. This is the case used to determine updated FOMs for the CFD component of ExaSMR. The layer size and time step $dt=3 \cdot 10^{-4}$ are consistent with previous calculation performed.  This simulation campaign corresponds effectively to a strong scaling study for the full core mesh ranging from 40\% to 100\% of the Summit supercomputer.
+The first case we examine is Case I which is the largest at $59.8 \cdot 10^{9}$ unique grid points. This is the case used to determine updated FOMs for the CFD component of ExaSMR. The layer size and time step $dt=3 \cdot 10^{-4}$ are consistent with previous calculation performed.  This simulation campaign corresponds effectively to a strong scaling study for the full core mesh ranging from 40\% to 100\% of the Summit supercomputer.
 
 Details of the strong scaling study are provided in Figure~\ref{fig:strong} illustrating the execution time per time-step as the simulation progresses and the overall wall time. An average time per time-step is determined as an average between 100 and 200 time steps. We note that for the previous FOM calculation this number was determined between 50 and 100 steps. However this difference likely has a minimal effect on the overall FOM, as the time per time-step does not change in average significantly after 50 steps. We note that the red line in Figure~\ref{fig:strong}  represents a separate strong scaling study where the 17x17 mesh is simply extruded in the streamwise direction.
 
@@ -45,7 +45,7 @@ We note that the FOM measured is significantly higher than the previous projecte
 \subsection{RANS full core simulations}
 \label{sec:results2}
 
-Several RANS simulations with the $k-\tau$ model have been performed as part of this campaign (see Table~\ref{tab:full core}). The numerical setup for the all the runs is consistent with the simulations discussed in Section~\ref{sec:nrs1}, which featured a verification study against Nek5000. In particular, the setup of the inlet boundary conditions is crucial. The cases have been run for a range of Reynolds numbers ($Re=10,000$ to $Re=60,0000$). The mesh was in fact  designed to support RANS simulations with $y+<1.0$ up to $Re=60,0000$.
+Several RANS simulations with the $k-\tau$ model have been performed as part of this campaign (see Table~\ref{tab:full core}). The numerical setup for all the runs is consistent with the simulations discussed in Section~\ref{sec:nrs1}, which featured a verification study against Nek5000. In particular, the setup of the inlet boundary conditions is crucial. The cases have been run for a range of Reynolds numbers ($Re=10,000$ to $Re=60,000$). The mesh was in fact  designed to support RANS simulations with $y+<1.0$ up to $Re=60,000$.
 
 Results from the periodic case (Case II) and the full height ($H=200.0$ cm) core case (Case III) yield identical results, at sufficient distance from the inlet. Sample results are provided in Figure~\ref{fig:vz} and Figure~\ref{fig:tke}. They illustrate a full core view and a detail for both the stream-wise velocity and the turbulent kinetic energy.  Both results are consistent with expectations and demonstrate inhomogeneous behavior near the thimbles and the boundaries of the core.
 
@@ -78,7 +78,7 @@ The next step from Section~\ref{sec:results2} is to add appropriate momentum sou
 \end{itemize}
 We note that there is no particular restriction here and the choices were arbitrary to simplify the problem. The methodology allows one to customize the forces as needed and have different patterns in different assemblies and at different heights.
 
-We now show was sample results of the flow field in the full core. We pay particular attention to the cross flows. Figure~\ref{fig:msm1} shows the cross flows directly past the first grid span. The momentum sources induce significant cross flow in the core, consistent with 2x2 simulations performed. The values reached by the cross flows in both directions represent a high percentage of the bulk and are very important for heat transfer and mixing.
+We now show sample results of the flow field in the full core. We pay particular attention to the cross flows. Figure~\ref{fig:msm1} shows the cross flows directly past the first grid span. The momentum sources induce significant cross flow in the core, consistent with 2x2 simulations performed. The values reached by the cross flows in both directions represent a high percentage of the bulk and are very important for heat transfer and mixing.
 
 \begin{figure}[!ht]
 \centering
