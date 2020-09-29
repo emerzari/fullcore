@@ -28,7 +28,9 @@ Details on these improvements are to be discussed in an upcoming paper and CEED 
 \subsection{Stability-Enhanced Wall-Resolved Models: $\lowercase{k}-\tau$}
 Another significant development during the past year was the implementation of the $k-\tau$
 version of the $k-\omega$ model and the investigation of the scaling of all the terms appearing in
-the right-hand side of the $k$ and $\tau$ equations. The model has been implemented in both Nek5000 and NekRS. The $k-\tau$ model was originally developed by Kalitzin et al.~\cite{benton01} as an alternative
+the right-hand side of the $k$ and $\tau$ equations. The model has been implemented in both Nek5000 \cite{shaver2020nek5000} and NekRS.
+
+The $k-\tau$ model was originally developed by Kalitzin et al.~\cite{benton01} as an alternative
 implementation of the $k-\omega$ model. The equations for $k$ and $\tau$ are derived from the $k-\omega$
 equations by using the definition $\tau=1/\omega$:
 
@@ -39,6 +41,7 @@ equations by using the definition $\tau=1/\omega$:
 \begin{equation}
  \frac{\partial (\rho \tau)}{\partial t} + \nabla\cdot(\rho\tau \bf{v}) =  \nabla\cdot\left[(\mu+\frac{\mu_t}{\sigma_\tau })\nabla \tau \right] - \gamma \frac{\tau}{k} P+\rho \beta-2\frac{\mu}{\tau}\left(\nabla\tau\cdot\nabla\tau\right)
 \end{equation}
+
 where now $G_k=P$, $Y_k=\beta^{*}k/\tau$, $G_\tau=\gamma\tau P/k$, $Y_\tau=\beta$ and $S_\tau=2\nu\left(\nabla\tau\cdot\nabla\tau\right)/\tau$.
 
 In contrast to the original form of the $k-\omega$ model, in which the $\omega$ equation contains
