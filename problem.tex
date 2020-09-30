@@ -23,6 +23,8 @@ All calculations performed as part of the full core simulation campaign use the 
 
 Table~\ref{tab:full core} includes data for six representative cases as part of this simulation campaign. Cases III and V represent full height core simulations with and without momentum sources performed with RANS. Case VI represent an initial simulation performed with Conjugate heat transfer. Most cases involve inlet/outlet boundary conditions. Case I is the case used the updated FOM calculation for ExaSMR.
 
+All simulations have been carried out at polynomial order $N=7$, which represents the sweet spot in terms of performance for NekRS. Time stepping varies between cases but it is in general larger than $dt=1.0 \cdot 10^(-4)$ for all cases. The CFL number has been kept below $C<0.4$.
+
 \begin{table} \centering \small
 % \resizebox{0.48\textwidth}{!}{
  \begin{tabular}{ccccc} \hline \hline
