@@ -78,8 +78,6 @@ The next step from Section~\ref{sec:results2} is to add appropriate momentum sou
 \end{itemize}
 We note that there is no particular restriction here and the choices were arbitrary to simplify the problem. The methodology allows one to customize the forces as needed and have different patterns in different assemblies and at different heights.
 
-We now show sample results of the flow field in the full core. We pay particular attention to the cross flows. Figure~\ref{fig:msm1} shows the cross flows directly past the first grid span. The momentum sources induce significant cross flow in the core, consistent with 2x2 simulations performed. The values reached by the cross flows in both directions represent a high percentage of the bulk and are very important for heat transfer and mixing.
-
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=0.99\textwidth]{./figures/1span_msm.png}
@@ -87,11 +85,27 @@ We now show sample results of the flow field in the full core. We pay particular
 \label{fig:msm}
 \end{figure}
 
+We now show some sample results of the flow field in the full core. We pay particular attention to the cross flows. Figure~\ref{fig:msm1} shows the cross flows directly past the first grid span. The momentum sources induce significant cross flow in the core, consistent with 2x2 simulations performed. The values reached by the cross flows in both directions represent a high percentage of the bulk and are very important for heat transfer and mixing. A detail of the pattern is shown at $z=5P$ in Figure~\ref{fig:msm2}. We note, that the force decays significantly in the streamwise direction as expected (Figure~\ref{fig:msm3}).
+
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=0.99\textwidth]{./figures/1span_msm_v1.png}
-\caption{Details of cross flow in full core after the spacer grid. a) Velocity in direction $x$. b) Velocity in direction $y$. }
+\includegraphics[width=0.99\textwidth]{./figures/fullcore_msm_v01.png}
+\caption{Cross flows in full core simulation at $z=1P$ downstream of spacer. Velocity in direction $x$. }
 \label{fig:msm1}
+\end{figure}
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.99\textwidth]{./figures/fullcore_msm_v02.png}
+\caption{Detail of cross flows in full core simulation. (Left) velocity in direction $y$. (Right) velocity in direction $x$. }
+\label{fig:msm2}
+\end{figure}
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.99\textwidth]{./figures/fullcore_msm_v03.png}
+\caption{Detail of cross flows in full core simulation. Velocity in direction $x$. (left) At $z=3P$ downstream of spacer  (left) At $z=5P$ downstream of spacer. }
+\label{fig:msm3}
 \end{figure}
 
 \subsection{Conjugate heat transfer}
