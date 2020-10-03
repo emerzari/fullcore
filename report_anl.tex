@@ -1,0 +1,126 @@
+
+%%%%%
+% To do all:
+% VisIt footnote, I-NERI->INERI, cross-(!)section, exact Re&Reh, Specs citation/table? Fig->Figure, MYRRHA
+
+\documentclass[11pt,letterpaper]{report}
+
+\usepackage{booktabs}
+\usepackage[shortcuts]{glossaries}
+
+\input preambl
+
+%\usepackage[title,titletoc]{appendix}	%?
+%\renewcommand{\appendixname}{Appendix}
+%%\usepackage[toc,page]{appendix}
+%\usepackage{sectsty}   % for smaller chapter/appendix
+%\chapternumberfont{\fontsize{12}{14}\selectfont}  % for 11pt option with \chapter/Appendix?
+%\chaptertitlefont{\fontsize{12}{14}\selectfont}
+
+\renewcommand{\bibname}{References}
+
+\title{Initial full core SMR simulations with NekRS}
+
+\author[1,2]{\rm Elia Merzari}
+\author[2]{Jun Fang}
+\author[2]{Dillon Shaver}
+\author[3]{Yu-Hsiang Lan}
+\author[3]{Misun Min}
+\author[3]{Paul Fischer}
+\author[4]{Ronald Rahaman}
+\author[4]{Paul Romano}
+
+\affil[1]{Nuclear Engineering Department, Pennsylvania State University}
+\affil[2]{Nuclear Science and Engineering Division, Argonne National Laboratory }
+\affil[3]{Mathematics and Computer Science Division, Argonne National Laboratory }
+\affil[4]{Computational Science Division, Argonne National Laboratory }
+
+\publicationdate{October 1, 2020}
+\report_no{ANL/}
+
+\begin{document}
+
+\maketitle
+\clearpage
+\thispagestyle{empty}
+\pagenumbering{roman}
+\tableofcontents
+\clearpage
+\listoffigures
+\listoftables
+\newpage
+\printglossary
+\newpage
+
+%% =========
+\graphicspath{{./Figs/}}
+
+\input execsum
+
+\addcontentsline{toc}{section}{Executive Summary}
+\newpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\counterwithout{section}{chapter}  % \usepackage{chngcntr} %?
+
+%% =========
+
+\section{Introduction}
+
+The ExaSMR project is developing tools for coupling \acf{mc} radiation
+transport solvers to a \acf{cfd} solver.  Work is based on the Shift MC, OpenMC MC, and Nek5000/NekRS CFD codes. The application development objective is to optimize these applications for exascale execution of full core simulations and modularize and integrate them into a common framework for coupled and individual execution. The work is supported by secondary applications for data processing and third-party libraries.
+
+Given the sheer scale of nuclear systems, the main algorithmic driver on the CFD side is weak scaling.
+The focus for the first four years is  on demonstrating scaling up to a full reactor core for high-fidelity simulation of turbulence. The goal is to demonstrate full-core fluid calculations aimed at better predicting the steady-state performance. The first step is performing URANS calculations, after which analysis will be conducted with zonal hybrid LES-RANS that provides an additional scaling dimension besides the number of assemblies. LES may be used to simulate a portion of a core, while the remainder will be handled by RANS.
+
+A key aspect of the modeling of PWR fuel assemblies is the presence of spacer grids and the mixing promoted by mixing vanes or equivalents. In the case of fine-scale LES simulations, the grids can be modeled explicitly. In our URANS simulations we used a reduced order methodology based on momentum sources to mimic the mixing of the vanes (see for example Capone et al. \cite{Capone2016}). The momentum sources have been carefully calibrated with detailed LES simulations of spacer grids performed with Nek5000.
+
+In previous milestones for the ExaSMR project we have focused on assembly level simulations with Nek5000 to assess baseline performance \cite{merzari2018performance} \cite{merzari2020wall}. We now shift focus to full core simulations. In fact, \textit{this milestone provides the first full-core pin resolved simulations ever performed to our knowledge}. \textbf{This represents a significant advancement in capability for the CFD of nuclear reactors}.
+
+This has been made possible by the CEED and ExaSMR investment in a novel port of Nek5000 called NekRS. NekRS was released in 2018 and it is developing rapidly, with significant improvements in performance \cite{merzari2020toward}. All large-scale simulations performed here have been conducted on the Summit supercomputer.
+
+As a first step we briefly discuss the status of NekRS and some recent code improvements performed in collaboration with CEED (Section~\ref{sec:nekrs}).   Then we discuss the development of the momentum source models (Section~\ref{sec:msm}) and the calibration procedure used. The methodology will need to be further extended and tested on more grids, but it shows a great deal of potential for the type of analysis presented here. We then discuss a series of full core analyses that have been performed as part of this study and the related numerical setups (Section~\ref{sec:model}). In the results section we discuss selected outcomes of the simulation campaigns performed including some performance results (Section~\ref{sec:results}). The results section includes an updated FOM measurement. Finally some conclusions are discussed.
+
+We reiterate  that the work presented here was performed in close collaboration with the CEED project.
+%%---------------------------------------------------------------------------%%
+\input{nekrs.tex}
+\input{msm.tex}
+\input{problem.tex}
+\input{results.tex}
+\input{conclusions.tex}
+
+
+
+%\clearpage
+
+\section*{Acknowledgments}
+\addcontentsline{toc}{section}{Acknowledgments}
+
+Argonne National Laboratory's work was supported by the U.S. Department of Energy, Office of Nuclear Energy, Nuclear Energy Advanced Modeling and Simulation (NEAMS), under contract DE-AC02-06CH11357.
+
+
+%\afterpage{\clearpage}
+
+\bibliographystyle{unsrt}
+%% =========
+\bibliography{references}
+\addcontentsline{toc}{section}{References}
+
+\newpage
+%%\usepackage[toc,page]{appendix}	%?
+%%\usepackage[toc]{appendix}
+%\appendix
+%\renewcommand\thesection{Appendix \Alph{section}}
+%%
+%\section{Other PLANDTL Figures}
+%\addcontentsline{toc}{section}{Other PLANDTL Figures}
+
+%\input appx %?
+
+%\includepdf[pages=-]{rep_61specs_not.pdf}
+
+
+\newpage
+\endpage
+
+\end{document}
