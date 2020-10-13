@@ -3,12 +3,12 @@
 % To do all:
 % VisIt footnote, I-NERI->INERI, cross-(!)section, exact Re&Reh, Specs citation/table? Fig->Figure, MYRRHA
 
-\documentclass[11pt,letterpaper]{report}
+\documentclass[11pt]{anlreport}
 
 \usepackage{booktabs}
 \usepackage[shortcuts]{glossaries}
 
-\input preambl
+\input preambl_anl
 
 %\usepackage[title,titletoc]{appendix}	%?
 %\renewcommand{\appendixname}{Appendix}
@@ -17,7 +17,7 @@
 %\chapternumberfont{\fontsize{12}{14}\selectfont}  % for 11pt option with \chapter/Appendix?
 %\chaptertitlefont{\fontsize{12}{14}\selectfont}
 
-\renewcommand{\bibname}{References}
+%\renewcommand{\bibname}{References}
 
 \title{Initial full core SMR simulations with NekRS}
 
@@ -31,16 +31,17 @@
 \author[4]{Paul Romano}
 
 \affil[1]{Nuclear Engineering Department, Pennsylvania State University}
-\affil[2]{Nuclear Science and Engineering Division, Argonne National Laboratory }
-\affil[3]{Mathematics and Computer Science Division, Argonne National Laboratory }
+\affil[2]{Nuclear Science and Engineering Division, Argonne National Laboratory}
+\affil[3]{Mathematics and Computer Science Division, Argonne National Laboratory}
 \affil[4]{Computational Science Division, Argonne National Laboratory }
 
-\publicationdate{October 1, 2020}
-\report_no{ANL/}
+\date{October 1, 2020}
+\division{Nuclear Science and Engineering Division}
+\building{208}
+\reportNumber{ANL-20/XX}
 
 \begin{document}
 
-\maketitle
 \clearpage
 \thispagestyle{empty}
 \pagenumbering{roman}
@@ -61,7 +62,7 @@
 \newpage
 \pagenumbering{arabic}
 \setcounter{page}{1}
-\counterwithout{section}{chapter}  % \usepackage{chngcntr} %?
+%\counterwithout{section}{chapter}  % \usepackage{chngcntr} %?
 
 %% =========
 
@@ -100,6 +101,7 @@ Argonne National Laboratory's work was supported by the U.S. Department of Energ
 
 
 %\afterpage{\clearpage}
+\pagebreak
 
 \bibliographystyle{unsrt}
 %% =========
@@ -121,6 +123,6 @@ Argonne National Laboratory's work was supported by the U.S. Department of Energ
 
 
 \newpage
-\endpage
+%\endpage
 
 \end{document}
